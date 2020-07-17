@@ -1,0 +1,13 @@
+[package]
+name = "rdxl_atom"
+version = "0.0.1"
+authors = ["Andrew <andrew@subarctic.org>"]
+license = "MIT OR Apache-2.0"
+description = "Atom Feed Template for RDXL"
+edition = "2018"
+readme = "README.md"
+repository = "https://github.com/andrew-johnson-4/rdxl_atom"
+keywords = ["atom","feed","templating","library"]
+
+[dependencies]
+rdxl = "0.5"
