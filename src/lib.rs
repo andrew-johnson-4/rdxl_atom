@@ -1,8 +1,36 @@
+use rdxl::{xtype,xrender};
+
+xtype!(
+   <!Feed xml_version:String={{"1.0".to_string()}} xml_encoding:String={{"utf-8".to_string()}} xmlns:String={{"http://www.w3.org/2005/Atom".to_string()}}>
+     <!FeedTitle title:String/>
+     <!FeedSubtitle subtitle:String/>
+     <!FeedLink link:String/>
+     <!FeedId id:String/>
+     <!FeedUpdated date:String/>
+     <!FeedEntry>
+       <!FeedEntryTitle title:String/>
+       <!FeedEntryLink link:String/>
+       <!FeedEntryId id:String/>
+       <!FeedEntryUpdated date:String/>
+       <!FeedEntrySummary summary:String/>
+       <!FeedEntryContentXhtml>
+         <?/>
+       </FeedEntryContentXhtml>
+       <!FeedEntryAuthor>
+         <!FeedEntryAuthorName name:String/>
+         <!FeedEntryAuthorEmail email:String/>
+       </FeedEntryAuthor>
+     </FeedEntry>
+   </Feed>
+);
+
+xrender!(Feed,
+   {{format!(r#"<?xml version="{}" encoding="{}"?>"#, self.xml_version, self.xml_encoding)}}
+   <feed xmlns={{self.xmlns}}>
+   </feed>
+);
+
 /*
-<?xml version="1.0" encoding="utf-8"?>
-
-<feed xmlns="http://www.w3.org/2005/Atom">
-
 	<title>Example Feed</title>
 	<subtitle>A subtitle.</subtitle>
 	<link href="http://example.org/feed/" rel="self" />
